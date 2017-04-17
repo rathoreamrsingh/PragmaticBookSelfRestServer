@@ -29,13 +29,6 @@
 		</dependency>
 	</dependencies>
 	
-<<<<<<< HEAD
-	
-	
-	
-	
-=======
->>>>>>> branch 'master' of https://github.com/rathoreamrsingh/PragmaticBookSelfRestServer
 	<build>
 		<finalName>PragmaticBookselfRestServer</finalName>
 		
