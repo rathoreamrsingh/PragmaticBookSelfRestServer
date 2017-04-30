@@ -1,15 +1,27 @@
 <?xml version="1.0"?>
 <project name="Pragmatic BookSelf RestServer" default="install">
+
+	<target name="install" depends="init">
+		<unzip src="../target/PragmaticBookselfRestServer.war" dest="${JBOSS_HOME}/standalone/deployments/PragmaticBookselfRestServer.war/"/>
+		<move file="${JBOSS_HOME}/standalone/deployments/PragmaticBookselfRestServer.war.deployed" tofile="${JBOSS_HOME}/standalone/deployments/PragmaticBookselfRestServer.war.dodeploy" failonerror="false"/>
+		<move file="${JBOSS_HOME}/standalone/deployments/PragmaticBookselfRestServer.war.failed" tofile="${JBOSS_HOME}/standalone/deployments/PragmaticBookselfRestServer.war.dodeploy" failonerror="false"/>
+	</target>
+
+	<!--Intializing all the required environment variables-->
 	<target name="init">
 		<property environment="env"/>
-		<antcall name="rint_variables"/>
-	</target>
-	<target name="install" depends="init">
-		<echo>Hello World - Welcome to Apache Ant!</echo>
+		<antcall target="print_variables"/>
+		<property name="JAVA_HOME" value="${env.JAVA_HOME}"/>
+		<property name="JBOSS_HOME" value="${env.JBOSS_HOME}"/>
+		<property name="ANT_HOME" value="${env.ANT_HOME}"/>
 	</target>
 
+	<!--Printing values of the variables-->
 	<target name="print_variables">
-
+		<echo message="Welcome to Pragmatic BookSelf Rest Server Project!!!"/>
+		<echo message="JAVA_HOME : ${env.JAVA_HOME}"/>
+		<echo message="JBOSS_HOME : ${env.JBOSS_HOME}"/>
+		<echo message="ANT_HOME : ${env.ANT_HOME}"/>
 	</target>
 
 </project>
