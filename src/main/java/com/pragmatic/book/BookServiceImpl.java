@@ -3,7 +3,6 @@
  */
 package com.pragmatic.book;
 
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
 /**
@@ -12,7 +11,7 @@ import javax.ws.rs.core.Response;
  */
 public class BookServiceImpl implements BookService {
 	@Override
-	public Response getBookById(int id) {
-		return Response.ok();
+	public String getBookById(int id) {
+		return "Hello World";
 	}
 }

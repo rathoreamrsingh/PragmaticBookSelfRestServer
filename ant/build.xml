@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<project name="Pragmatic BookSelf RestServer" default="install">
+	<target name="init">
+		<property environment="env"/>
+		<antcall name="rint_variables"/>
+	</target>
+	<target name="install" depends="init">
+		<echo>Hello World - Welcome to Apache Ant!</echo>
+	</target>
+
+	<target name="print_variables">
+
+	</target>
+
+</project>
