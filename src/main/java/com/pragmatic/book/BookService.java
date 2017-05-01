@@ -13,5 +13,5 @@ import javax.ws.rs.core.Response;
 public interface BookService {
 	@GET
 	@Path("/books/{id}/")
-	public String getBookById(@PathParam("id") int id);
+	public Book getBookById(@PathParam("id") int id);
 }

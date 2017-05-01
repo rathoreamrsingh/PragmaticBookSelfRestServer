@@ -11,7 +11,14 @@ import javax.ws.rs.core.Response;
  */
 public class BookServiceImpl implements BookService {
 	@Override
-	public String getBookById(int id) {
-		return "Hello World";
+	public Book getBookById(int id) {
+		Book book = new Book();
+		book.setId(id);
+		book.setDateOfPublish(21);
+		book.setGenere("Drama");
+		book.setMonthOfPublish(5);
+		book.setWriter("Sobha De");
+		book.setYearOfPublish(2013);
+		return book;
 	}
 }
