@@ -18,6 +18,10 @@ public class Book {
 	private int monthOfPublish;
 	private String genere;
 
+	public Book() {
+
+	}
+
 	/**
 	 * @return the id
 	 */
