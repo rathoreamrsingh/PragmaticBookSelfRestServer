@@ -3,7 +3,11 @@
  */
 package com.pragmatic.book;
 
+import java.sql.Date;
+
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.pragmatic.bookself.book.BookEntity;
 
 /**
  * @author amar
@@ -12,11 +16,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "Book")
 public class Book {
 	private int id;
-	private String writer;
-	private int yearOfPublish;
-	private int dateOfPublish;
-	private int monthOfPublish;
-	private String genere;
+	private String bName;
+	private int authorId;
+	private int rating;
+	private Date pubDate;
 
 	public Book() {
 
@@ -38,78 +41,92 @@ public class Book {
 	}
 
 	/**
-	 * @return the writer
+	 * @return the bName
 	 */
-	public String getWriter() {
-		return writer;
+	public String getbName() {
+		return bName;
 	}
 
 	/**
-	 * @param writer
-	 *            the writer to set
+	 * @param bName
+	 *            the bName to set
 	 */
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setbName(String bName) {
+		this.bName = bName;
 	}
 
 	/**
-	 * @return the yearOfPublish
+	 * @return the authorId
 	 */
-	public int getYearOfPublish() {
-		return yearOfPublish;
+	public int getAuthorId() {
+		return authorId;
 	}
 
 	/**
-	 * @param yearOfPublish
-	 *            the yearOfPublish to set
+	 * @param authorId
+	 *            the authorId to set
 	 */
-	public void setYearOfPublish(int yearOfPublish) {
-		this.yearOfPublish = yearOfPublish;
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
 	}
 
 	/**
-	 * @return the dateOfPublish
+	 * @return the rating
 	 */
-	public int getDateOfPublish() {
-		return dateOfPublish;
+	public int getRating() {
+		return rating;
 	}
 
 	/**
-	 * @param dateOfPublish
-	 *            the dateOfPublish to set
+	 * @param rating
+	 *            the rating to set
 	 */
-	public void setDateOfPublish(int dateOfPublish) {
-		this.dateOfPublish = dateOfPublish;
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
 	/**
-	 * @return the monthOfPublish
+	 * @return the pubDate
 	 */
-	public int getMonthOfPublish() {
-		return monthOfPublish;
+	public Date getPubDate() {
+		return pubDate;
 	}
 
 	/**
-	 * @param monthOfPublish
-	 *            the monthOfPublish to set
+	 * @param pubDate
+	 *            the pubDate to set
 	 */
-	public void setMonthOfPublish(int monthOfPublish) {
-		this.monthOfPublish = monthOfPublish;
+	public void setPubDate(Date pubDate) {
+		this.pubDate = pubDate;
 	}
 
 	/**
-	 * @return the genere
+	 * This method helps in coverting BookEntity {@link BookEntity} to Book
+	 * {@link Book}
+	 * 
+	 * @param bookentity
+	 * @return
 	 */
-	public String getGenere() {
-		return genere;
-	}
+	public static Book parseBookEntity(BookEntity bookentity) {
+		Book book = new Book();
+		book.setId(bookentity.getId());
+		book.setbName(bookentity.getB_name());
+		book.setAuthorId(bookentity.getAuthor_id());
+		book.setPubDate(bookentity.getPub_date());
+		book.setRating(bookentity.getRating());
 
-	/**
-	 * @param genere
-	 *            the genere to set
-	 */
-	public void setGenere(String genere) {
-		this.genere = genere;
+		return book;
+	}
+	
+	public static BookEntity parseBook(Book book){ 
+		BookEntity bookEntity = new BookEntity();
+		bookEntity.setId(book.getId());
+		bookEntity.setAuthor_id(book.getAuthorId());
+		bookEntity.setB_name(book.getbName());
+		bookEntity.setPub_date(book.getPubDate());
+		bookEntity.setRating(book.getRating());
+		return bookEntity; 
+		
 	}
 
 }
